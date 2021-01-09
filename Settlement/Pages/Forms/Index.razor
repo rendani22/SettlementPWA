@@ -1,0 +1,78 @@
+﻿@page "/form"
+
+<EditForm Model="@starship" >
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <p>
+        <label>
+            Identifier:
+            <InputText @bind-Value="starship.Identifier" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Description (optional):
+            <InputTextArea @bind-Value="starship.Description" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Primary Classification:
+            <InputSelect @bind-Value="starship.Classification">
+                <option value="">Select classification ...</option>
+                <option value="Exploration">Exploration</option>
+                <option value="Diplomacy">Diplomacy</option>
+                <option value="Defense">Defense</option>
+            </InputSelect>
+        </label>
+    </p>
+    <p>
+        <label>
+            Maximum Accommodation:
+            <InputNumber @bind-Value="starship.MaximumAccommodation" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Engineering Approval:
+            <InputCheckbox @bind-Value="starship.IsValidatedDesign" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Production Date:
+            <InputDate @bind-Value="starship.ProductionDate" />
+        </label>
+    </p>
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code{
+
+
+    private testModel starship = new testModel() {
+        ProductionDate = DateTime.UtcNow,
+        Identifier = "Identifier",
+        Description = "Discription",
+        Classification = "Classsi",
+        MaximumAccommodation = 1,
+    };
+
+
+    public class testModel
+    {
+        public string Identifier { get; set; }
+
+        public string Description { get; set; }
+
+        public string Classification { get; set; }
+
+        public int MaximumAccommodation { get; set; }
+
+        public bool IsValidatedDesign { get; set; }
+
+        public DateTime ProductionDate { get; set; }
+    }
+}
