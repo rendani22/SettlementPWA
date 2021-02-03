@@ -2,35 +2,38 @@
 
 
 
-    <div class="formTileCont">
-        <p class="formName">
-            Form Name
-        </p>
-        <hr />
-        <p class="settlementName">
-            Settlement
-        </p>    
 
-    </div>
 
     <style>
-        .formTileCont {
-            width: 10rem;
-            height: 13rem;
-            background-color: white;
-            border-radius: 4px;
+
+
+        .questionContainer {
+            padding: 0.5rem;
             box-shadow: 5px 5px 5px rgba(68,68,68,0.3);
+            border-radius: 4px;
+            background-color: white;
         }
+
+
+        
     </style>
 
-<hr />
+
+
+
     <div class="formContainer">
 
         <EditForm Model="@starship">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
-            <p>
+            <div class="form-group questionContainer">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+
+            @*<p class="questionContainer">
+                <br />
                 <label>
                     Identifier:
                     <InputText @bind-Value="starship.Identifier" />
@@ -70,7 +73,7 @@
                     Production Date:
                     <InputDate @bind-Value="starship.ProductionDate" />
                 </label>
-            </p>
+            </p>*@
 
             <button type="submit">Submit</button>
         </EditForm>
